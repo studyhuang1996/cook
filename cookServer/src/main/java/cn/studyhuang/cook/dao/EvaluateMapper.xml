@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.studyhuang.cook.dao.EvaluateMapper" >
+  <resultMap id="BaseResultMap" type="cn.studyhuang.cook.pojo.Evaluate" >
+    <id column="evaluate_id" property="evaluateId" jdbcType="BIGINT" />
+    <result column="evaluate_content" property="evaluateContent" jdbcType="VARCHAR" />
+    <result column="evalute_date" property="evaluteDate" jdbcType="DATE" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="mid" property="mid" jdbcType="BIGINT" />
+    <result column="score" property="score" jdbcType="REAL" />
+     <result column="reply_id" property="replyId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    evaluate_id, evaluate_content, evalute_date, user_id, mid, score,reply_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.studyhuang.cook.pojo.EvaluateExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from evaluate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="page != null">
+      limit #{page},#{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from evaluate
+    where evaluate_id = #{evaluateId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from evaluate
+    where evaluate_id = #{evaluateId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.studyhuang.cook.pojo.EvaluateExample" >
+    delete from evaluate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.studyhuang.cook.pojo.Evaluate" >
+    insert into evaluate (evaluate_id, evaluate_content, evalute_date, 
+      user_id, mid, score,reply_id)
+    values (#{evaluateId,jdbcType=BIGINT}, #{evaluateContent,jdbcType=VARCHAR}, #{evaluteDate,jdbcType=DATE}, 
+      #{userId,jdbcType=BIGINT}, #{mid,jdbcType=BIGINT}, #{score,jdbcType=REAL},#{replyId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.studyhuang.cook.pojo.Evaluate" >
+    insert into evaluate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="evaluateId != null" >
+        evaluate_id,
+      </if>
+      <if test="evaluateContent != null" >
+        evaluate_content,
+      </if>
+      <if test="evaluteDate != null" >
+        evalute_date,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="mid != null" >
+        mid,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+       <if test="replyId != null" >
+        reply_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="evaluateId != null" >
+        #{evaluateId,jdbcType=BIGINT},
+      </if>
+      <if test="evaluateContent != null" >
+        #{evaluateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluteDate != null" >
+        #{evaluteDate,jdbcType=DATE},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="mid != null" >
+        #{mid,jdbcType=BIGINT},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=REAL},
+      </if>
+       <if test="replyId != null" >
+         #{replyId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.studyhuang.cook.pojo.EvaluateExample" resultType="java.lang.Integer" >
+    select count(*) from evaluate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update evaluate
+    <set >
+      <if test="record.evaluateId != null" >
+        evaluate_id = #{record.evaluateId,jdbcType=BIGINT},
+      </if>
+      <if test="record.evaluateContent != null" >
+        evaluate_content = #{record.evaluateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.evaluteDate != null" >
+        evalute_date = #{record.evaluteDate,jdbcType=DATE},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.mid != null" >
+        mid = #{record.mid,jdbcType=BIGINT},
+      </if>
+      <if test="record.score != null" >
+        score = #{record.score,jdbcType=REAL},
+      </if>
+      <if test="record.replyId != null" >
+        reply_id = #{record.replyId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update evaluate
+    set evaluate_id = #{record.evaluateId,jdbcType=BIGINT},
+      evaluate_content = #{record.evaluateContent,jdbcType=VARCHAR},
+      evalute_date = #{record.evaluteDate,jdbcType=DATE},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      mid = #{record.mid,jdbcType=BIGINT},
+      score = #{record.score,jdbcType=REAL},
+      reply_id = #{record.replyId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.studyhuang.cook.pojo.Evaluate" >
+    update evaluate
+    <set >
+      <if test="evaluateContent != null" >
+        evaluate_content = #{evaluateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluteDate != null" >
+        evalute_date = #{evaluteDate,jdbcType=DATE},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="mid != null" >
+        mid = #{mid,jdbcType=BIGINT},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=REAL},
+      </if>
+       <if test="replyId != null" >
+        reply_id = #{replyId,,jdbcType=BIGINT},
+      </if>
+    </set>
+    where evaluate_id = #{evaluateId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.studyhuang.cook.pojo.Evaluate" >
+    update evaluate
+    set evaluate_content = #{evaluateContent,jdbcType=VARCHAR},
+      evalute_date = #{evaluteDate,jdbcType=DATE},
+      user_id = #{userId,jdbcType=BIGINT},
+      mid = #{mid,jdbcType=BIGINT},
+      score = #{score,jdbcType=REAL},
+      reply_id =#{replyId,jdbcType=BIGINT}
+    where evaluate_id = #{evaluateId,jdbcType=BIGINT}
+  </update>
+ 
+ <select id="getEvaluates" resultMap="BaseResultMap" parameterType="java.lang.Long">
+     select 
+    <include refid="Base_Column_List" />
+    from evaluate
+    where mid = #{mid,jdbcType=BIGINT} 
+    and reply_id = 0
+ </select>
+ <select id="getReply" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    select 
+     <include refid="Base_Column_List" />
+    from evaluate
+    where reply_id = #{replyId,jdbcType=BIGINT} 
+ </select>
+</mapper>

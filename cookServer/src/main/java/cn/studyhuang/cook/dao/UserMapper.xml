@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.studyhuang.cook.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="cn.studyhuang.cook.pojo.User" >
+    <id column="uid" property="uid" jdbcType="BIGINT" />
+    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <result column="upassword" property="upassword" jdbcType="VARCHAR" />
+    <result column="uemail" property="uemail" jdbcType="VARCHAR" />
+    <result column="ubirthday" property="ubirthday" jdbcType="DATE" />
+    <result column="utel" property="utel" jdbcType="VARCHAR" />
+    <result column="ustate" property="ustate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    uid, uname, upassword, uemail, ubirthday, utel, ustate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.studyhuang.cook.pojo.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="page != null">
+      limit #{page},#{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where uid = #{uid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user
+    where uid = #{uid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.studyhuang.cook.pojo.UserExample" >
+    delete from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.studyhuang.cook.pojo.User" >
+    insert into user (uid, uname, upassword, 
+      uemail, ubirthday, utel, 
+      ustate)
+    values (#{uid,jdbcType=BIGINT}, #{uname,jdbcType=VARCHAR}, #{upassword,jdbcType=VARCHAR}, 
+      #{uemail,jdbcType=VARCHAR}, #{ubirthday,jdbcType=DATE}, #{utel,jdbcType=VARCHAR}, 
+      #{ustate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.studyhuang.cook.pojo.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="uname != null" >
+        uname,
+      </if>
+      <if test="upassword != null" >
+        upassword,
+      </if>
+      <if test="uemail != null" >
+        uemail,
+      </if>
+      <if test="ubirthday != null" >
+        ubirthday,
+      </if>
+      <if test="utel != null" >
+        utel,
+      </if>
+      <if test="ustate != null" >
+        ustate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="upassword != null" >
+        #{upassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uemail != null" >
+        #{uemail,jdbcType=VARCHAR},
+      </if>
+      <if test="ubirthday != null" >
+        #{ubirthday,jdbcType=DATE},
+      </if>
+      <if test="utel != null" >
+        #{utel,jdbcType=VARCHAR},
+      </if>
+      <if test="ustate != null" >
+        #{ustate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.studyhuang.cook.pojo.UserExample" resultType="java.lang.Integer" >
+    select count(*) from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user
+    <set >
+      <if test="record.uid != null" >
+        uid = #{record.uid,jdbcType=BIGINT},
+      </if>
+      <if test="record.uname != null" >
+        uname = #{record.uname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.upassword != null" >
+        upassword = #{record.upassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uemail != null" >
+        uemail = #{record.uemail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ubirthday != null" >
+        ubirthday = #{record.ubirthday,jdbcType=DATE},
+      </if>
+      <if test="record.utel != null" >
+        utel = #{record.utel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ustate != null" >
+        ustate = #{record.ustate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user
+    set uid = #{record.uid,jdbcType=BIGINT},
+      uname = #{record.uname,jdbcType=VARCHAR},
+      upassword = #{record.upassword,jdbcType=VARCHAR},
+      uemail = #{record.uemail,jdbcType=VARCHAR},
+      ubirthday = #{record.ubirthday,jdbcType=DATE},
+      utel = #{record.utel,jdbcType=VARCHAR},
+      ustate = #{record.ustate,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.studyhuang.cook.pojo.User" >
+    update user
+    <set >
+      <if test="uname != null" >
+        uname = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="upassword != null" >
+        upassword = #{upassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uemail != null" >
+        uemail = #{uemail,jdbcType=VARCHAR},
+      </if>
+      <if test="ubirthday != null" >
+        ubirthday = #{ubirthday,jdbcType=DATE},
+      </if>
+      <if test="utel != null" >
+        utel = #{utel,jdbcType=VARCHAR},
+      </if>
+      <if test="ustate != null" >
+        ustate = #{ustate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.studyhuang.cook.pojo.User" >
+    update user
+    set uname = #{uname,jdbcType=VARCHAR},
+      upassword = #{upassword,jdbcType=VARCHAR},
+      uemail = #{uemail,jdbcType=VARCHAR},
+      ubirthday = #{ubirthday,jdbcType=DATE},
+      utel = #{utel,jdbcType=VARCHAR},
+      ustate = #{ustate,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=BIGINT}
+  </update>
+</mapper>
