@@ -1,0 +1,132 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:background="@color/white_50"
+             tools:context="cn.studyhuang.cook.fragment.AddCookFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_scrollFlags="scroll|enterAlways|snap" />
+        </android.support.design.widget.AppBarLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/distanse200"
+                android:layout_height="wrap_content"
+                android:text="菜谱名称"
+                android:textSize="@dimen/size16"
+                android:layout_weight="1"
+                android:id="@+id/desc_image"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="菜谱名称"
+                android:textSize="@dimen/size16"
+                android:id="@+id/menu_name"/>
+
+        </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="@dimen/distanse200"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:text="分类"-->
+            <!--android:textSize="18dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+           <!--/>-->
+        <!-- <Spinner-->
+            <!--android:id="@+id/spinner"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_width="@dimen/distanse200"-->
+        <!--/>   -->
+    <!--</LinearLayout>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/distanse200"
+                android:layout_height="wrap_content"
+                android:text="菜谱描述"
+                android:textSize="@dimen/size16"
+                android:layout_weight="1"
+                 />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="描述"
+                android:textSize="@dimen/size16"
+                android:id="@+id/desc"/>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/upLoad_imageT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/size16"
+            android:text="上传图片"/>
+
+        <LinearLayout
+            android:id="@+id/upLoad_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/distanse20"
+            android:layout_marginRight="@dimen/distanse20"
+            android:layout_marginTop="@dimen/distanse20"
+            android:layout_marginBottom="@dimen/distanse20"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/upLoad_image1"
+                android:layout_width="234dp"
+                android:layout_height="197dp"
+                android:src="@drawable/image_add_sel"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="@dimen/distanse10"/>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submits"
+            android:text="提      交"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textStyle="normal|bold|italic"
+            android:textColorLink="?android:attr/textColorPrimaryNoDisable"
+            />
+    </LinearLayout>
+
+
+</FrameLayout>

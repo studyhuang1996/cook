@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">厨房美食</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="checkin">Checkin</string>
+    <string name="menu_settings">设置</string>
+    <string name="title_activity_login">登录用户</string>
+
+  <string name="cheese_ipsum">
+                   在这里，你可以看到各种类型的美食
+                   在这里，你可分享像他人展示自己的美食
+                   在这里，你可以请教他人制作美食的方法</string>
+    <!-- Strings related to login -->
+    <string name="prompt_username">输入你的用户名</string>
+    <string name="prompt_email">输入你的手机号</string>
+    <string name="prompt_password">输入你的密码</string>
+    <string name="prompt_password_again">输入你的密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_email">手机号无效</string>
+    <string name="error_invalid_password">密码太短了</string>
+    <string name="error_incorrect_password">密码不正确</string>
+    <string name="error_field_required">该项必须填</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="action_register">还没有帐号?</string>
+    <string name="action_re_password">再次输入密码</string>
+    <string name="prompt_nickname">输入你的昵称</string>
+    <string name="user_id">userId</string>
+    <string name="title_pinglun">添加评论</string>
+    <string name="title_activity_user">个人中心</string>
+    <string name="title_activity_category">分类列表</string>
+    <string name="title_activity_modify_user">修改密码</string>
+    <string name="title_activity_settings">设置</string>
+
+
+    <string name="upLoad_image">上传图片：</string>
+    <string name="desc_image">图片描述：</string>
+    <string name="desc_imageE">请输入图片描述信息</string>
+    <string name="upLoad">提交</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:toolbar="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay"/>
+
+    <EditText
+        android:id="@+id/replay_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"/>
+   <Button
+       android:id="@+id/send_pingjia"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/card_title_size_24sp"
+       android:text="发送"
+       android:layout_marginTop="@dimen/card_context_size_10sp"
+       android:textAlignment="center"/>
+</LinearLayout>

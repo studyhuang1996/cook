@@ -1,0 +1,111 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:background="@color/white_50"
+             tools:context="cn.studyhuang.cook.fragment.AddCookFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/card_context_size_18sp"
+                android:layout_marginTop="60dp"
+                android:text="创建菜谱名称" />
+
+            <EditText
+                android:id="@+id/cook_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:textSize="@dimen/card_context_size_18sp"
+                android:layout_marginTop="20dp"
+                android:text="描述" />
+
+            <EditText
+                android:id="@+id/cook_desc"
+                android:enabled="true"
+                android:gravity="top"
+                android:minLines="8"
+                android:maxLines="15"
+                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="vertical"
+            android:layout_marginTop="80dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:textSize="@dimen/card_context_size_18sp"
+                android:layout_marginTop="20dp"
+                android:text="上传图片" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/add"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/ic_action_add"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            </LinearLayout>
+        <Button
+            android:id="@+id/submits"
+            android:text="提      交"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textStyle="normal|bold|italic"
+            android:textColorLink="?android:attr/textColorPrimaryNoDisable"
+            />
+    </LinearLayout>
+
+
+</FrameLayout>

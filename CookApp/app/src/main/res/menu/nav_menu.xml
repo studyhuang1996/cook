@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/menus_search"
+            android:orderInCategory="100"
+            android:title="搜索"
+            app:actionViewClass="android.support.v7.widget.SearchView"
+            app:showAsAction="always"
+            />
+    <item
+        android:id="@+id/index"
+        android:icon="@mipmap/ic_launcher"
+        android:title="菜谱列表" />
+        <item
+            android:id="@+id/category"
+            android:icon="@mipmap/ic_launcher"
+            android:title="分类" />
+    <item
+        android:id="@+id/my_home"
+        android:icon="@mipmap/ic_launcher"
+        android:title="个人中心" />
+        <item
+        android:id="@+id/my_foods"
+        android:icon="@mipmap/ic_launcher"
+        android:title="发布的菜谱" />
+    <item
+        android:id="@+id/add_menus"
+        android:icon="@mipmap/ic_launcher"
+        android:title="添加菜谱" />
+        <item
+            android:id="@+id/exit_cook"
+            android:icon="@mipmap/ic_launcher"
+            android:title="退出" />
+    </group>
+</menu>
