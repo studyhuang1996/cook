@@ -17,3 +17,5 @@ app效果图
 
 ![后台](http://img.studyhuang.cn/houtai.jpg)
 
+更多图片在picture文件夹下。
+
